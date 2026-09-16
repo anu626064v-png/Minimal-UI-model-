@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal &amp; Clean — UI Starter Template</title>
+
+  <!-- Elegant, highly legible sans-serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: "#FAFAF8",
+            mist: "#F4F3EF",
+            ink: "#2A2A28",
+            mute: "#8A8A84",
+            line: "#E6E4DC",
+            sage: {
+              50: "#F5F6F2",
+              100: "#E8EBE3",
+              200: "#D0D6C6",
+              400: "#8A9478",
+              500: "#6F7A5E",
+              600: "#5A634C",
+              700: "#484F3D",
+            },
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "ui-sans-serif", "sans-serif"],
+          },
+          letterSpacing: {
+            label: "0.14em",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Base */
+    html { scroll-behavior: smooth; }
+    body { background: #FAFAF8; color: #2A2A28; }
+
+    /* Subtle template labels — always visible so the structure is self-explanatory */
+    .slot-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A3A39C;
+    }
+
+    /* Calm scroll reveal — fade + tiny rise, nothing flashy */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Placeholder image boxes */
+    .ph-box {
+      background: #EFEDE6;
+      color: #9A9A93;
+      border: 1px dashed #D5D2C8;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-paper text-ink">
+
+  <!-- =====================================================================
+       HEADER / NAV
+       Swap [Logo] and [Link] labels with the business name and real nav items.
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
+      <div>
+        <p class="slot-label mb-1">Logo / Brand</p>
+        <a href="#" class="text-base font-semibold tracking-tight text-ink">[Business Name]</a>
+      </div>
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <div class="text-center">
+          <p class="slot-label mb-1">Nav Link</p>
+          <a href="#about" class="text-sm text-ink/80 hover:text-ink">[Link]</a>
+        </div>
+        <div class="text-center">
+          <p class="slot-label mb-1">Nav Link</p>
+          <a href="#features" class="text-sm text-ink/80 hover:text-ink">[Link]</a>
+        </div>
+        <div class="text-center">
+          <p class="slot-label mb-1">Nav Link</p>
+          <a href="#gallery" class="text-sm text-ink/80 hover:text-ink">[Link]</a>
+        </div>
+      </nav>
+      <div class="hidden sm:block">
+        <p class="slot-label mb-1 text-right">Header CTA</p>
+        <a href="#cta" class="inline-flex items-center rounded-full bg-sage-600 px-4 py-2 text-sm font-medium text-white hover:bg-sage-700">
+          [Primary Action]
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         1. HERO
+         Large heading, short tagline, one or two CTAs.
+         ===================================================================== -->
+    <section id="hero" class="reveal">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="slot-label mb-5">Hero Eyebrow</p>
+          <p class="mb-6 text-xs font-medium uppercase tracking-label text-sage-600">[Small eyebrow text]</p>
+
+          <p class="slot-label mb-3">Hero Heading</p>
+          <h1 class="text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            [Business Name]
+          </h1>
+
+          <p class="slot-label mb-3 mt-8">Hero Tagline</p>
+          <p class="mx-auto max-w-xl text-lg leading-relaxed text-mute sm:text-xl">
+            [Short tagline that describes what the business offers in one clear sentence.]
+          </p>
+
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <div>
+              <p class="slot-label mb-2 text-center">Primary CTA Button</p>
+              <a href="#cta" class="inline-flex min-w-[11rem] items-center justify-center rounded-full bg-sage-600 px-6 py-3 text-sm font-medium text-white hover:bg-sage-700">
+                [Primary Action]
+              </a>
+            </div>
+            <div>
+              <p class="slot-label mb-2 text-center">Secondary CTA Button</p>
+              <a href="#about" class="inline-flex min-w-[11rem] items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-medium text-ink hover:bg-mist">
+                [Secondary Action]
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. ABOUT / INTRO
+         One focused text block — a single idea, plenty of air around it.
+         ===================================================================== -->
+    <section id="about" class="reveal border-t border-line">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="slot-label mb-4">Section Label</p>
+          <p class="mb-6 text-xs font-medium uppercase tracking-label text-sage-600">About</p>
+
+          <p class="slot-label mb-3">About Heading</p>
+          <h2 class="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            [Short intro heading]
+          </h2>
+
+          <p class="slot-label mb-3 mt-8">About Body</p>
+          <p class="text-base leading-relaxed text-mute sm:text-lg">
+            [Short intro about the business goes here. Keep this to two or three sentences that explain who you are and why it matters. Replace this paragraph with real copy later.]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. FEATURES / SERVICES
+         4 empty cards. Replace icon, name, and description per offering.
+         ===================================================================== -->
+    <section id="features" class="reveal bg-mist">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+        <div class="mx-auto mb-14 max-w-2xl text-center">
+          <p class="slot-label mb-4">Section Label</p>
+          <p class="mb-6 text-xs font-medium uppercase tracking-label text-sage-600">Features / Services</p>
+          <p class="slot-label mb-3">Section Heading</p>
+          <h2 class="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">[What you offer]</h2>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          <!-- Feature Card 1 -->
+          <article class="rounded-2xl bg-white p-7">
+            <p class="slot-label mb-5">Feature Card</p>
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-sage-50 text-sage-600" aria-hidden="true">
+              <!-- Placeholder icon shape — swap for a real SVG later -->
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="7" />
+              </svg>
+            </div>
+            <p class="slot-label mb-2">Feature / Service Name</p>
+            <h3 class="text-base font-semibold text-ink">[Feature/Service Name]</h3>
+            <p class="slot-label mb-2 mt-4">Short Description</p>
+            <p class="text-sm leading-relaxed text-mute">[Short description]</p>
+          </article>
+
+          <!-- Feature Card 2 -->
+          <article class="rounded-2xl bg-white p-7">
+            <p class="slot-label mb-5">Feature Card</p>
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-sage-50 text-sage-600" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <rect x="6" y="6" width="12" height="12" rx="2" />
+              </svg>
+            </div>
+            <p class="slot-label mb-2">Feature / Service Name</p>
+            <h3 class="text-base font-semibold text-ink">[Feature/Service Name]</h3>
+            <p class="slot-label mb-2 mt-4">Short Description</p>
+            <p class="text-sm leading-relaxed text-mute">[Short description]</p>
+          </article>
+
+          <!-- Feature Card 3 -->
+          <article class="rounded-2xl bg-white p-7">
+            <p class="slot-label mb-5">Feature Card</p>
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-sage-50 text-sage-600" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 6v12M6 12h12" stroke-linecap="round" />
+              </svg>
+            </div>
+            <p class="slot-label mb-2">Feature / Service Name</p>
+            <h3 class="text-base font-semibold text-ink">[Feature/Service Name]</h3>
+            <p class="slot-label mb-2 mt-4">Short Description</p>
+            <p class="text-sm leading-relaxed text-mute">[Short description]</p>
+          </article>
+
+          <!-- Feature Card 4 -->
+          <article class="rounded-2xl bg-white p-7">
+            <p class="slot-label mb-5">Feature Card</p>
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-sage-50 text-sage-600" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 16l7-8 7 8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="slot-label mb-2">Feature / Service Name</p>
+            <h3 class="text-base font-semibold text-ink">[Feature/Service Name]</h3>
+            <p class="slot-label mb-2 mt-4">Short Description</p>
+            <p class="text-sm leading-relaxed text-mute">[Short description]</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. GALLERY / SHOWCASE
+         6 empty image boxes. Drop real photos in later; keep the grid.
+         ===================================================================== -->
+    <section id="gallery" class="reveal">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+        <div class="mx-auto mb-14 max-w-2xl text-center">
+          <p class="slot-label mb-4">Section Label</p>
+          <p class="mb-6 text-xs font-medium uppercase tracking-label text-sage-600">Gallery / Showcase</p>
+          <p class="slot-label mb-3">Section Heading</p>
+          <h2 class="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">[Visual work or space]</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+
+          <!-- Repeatable image slot — 6 boxes -->
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+          <figure class="ph-box flex aspect-[4/3] flex-col items-center justify-center rounded-xl">
+            <p class="slot-label mb-2">Image Slot</p>
+            <svg class="mb-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="10" r="1.5" />
+              <path d="M21 16l-5-5-9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <figcaption class="text-xs text-mute">[Image]</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. TESTIMONIAL
+         One focused quote. Add more blocks later if needed.
+         ===================================================================== -->
+    <section id="testimonial" class="reveal border-t border-line bg-mist">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="slot-label mb-4">Section Label</p>
+          <p class="mb-10 text-xs font-medium uppercase tracking-label text-sage-600">Testimonial</p>
+
+          <blockquote>
+            <p class="slot-label mb-4">Customer Quote</p>
+            <p class="text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl">
+              “[Customer quote goes here]”
+            </p>
+            <footer class="mt-8">
+              <p class="slot-label mb-2">Customer Name</p>
+              <cite class="not-italic text-sm text-mute">[Customer Name]</cite>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. CALL-TO-ACTION BANNER
+         One heading, one button. Keep the destination generic.
+         ===================================================================== -->
+    <section id="cta" class="reveal">
+      <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+        <div class="rounded-3xl bg-sage-700 px-8 py-16 text-center sm:px-16 sm:py-20">
+          <p class="slot-label mb-4 !text-sage-200">Section Label</p>
+          <p class="mb-6 text-xs font-medium uppercase tracking-label text-sage-200">Call to Action</p>
+
+          <p class="slot-label mb-3 !text-sage-200">Action Heading</p>
+          <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            [Action heading]
+          </h2>
+
+          <p class="slot-label mb-3 mt-5 !text-sage-200">Action Supporting Line</p>
+          <p class="mx-auto max-w-md text-base text-sage-100">
+            [One supporting line that tells the visitor what happens next.]
+          </p>
+
+          <div class="mt-10">
+            <p class="slot-label mb-3 !text-sage-200">CTA Button</p>
+            <a href="#" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium text-sage-700 hover:bg-sage-50">
+              [Contact/Order/Book Button]
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       7. FOOTER
+       Placeholder links + contact line. Swap for real pages and details.
+       ===================================================================== -->
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-14 sm:px-8 md:flex-row md:items-start md:justify-between">
+      <div class="text-center md:text-left">
+        <p class="slot-label mb-2">Brand</p>
+        <p class="text-sm font-semibold text-ink">[Business Name]</p>
+        <p class="slot-label mb-1 mt-4">Contact Info</p>
+        <p class="text-sm text-mute">[Contact Info]</p>
+      </div>
+
+      <nav class="flex gap-10" aria-label="Footer">
+        <div class="text-center">
+          <p class="slot-label mb-2">Footer Link</p>
+          <a href="#" class="text-sm text-mute hover:text-ink">[Link]</a>
+        </div>
+        <div class="text-center">
+          <p class="slot-label mb-2">Footer Link</p>
+          <a href="#" class="text-sm text-mute hover:text-ink">[Link]</a>
+        </div>
+        <div class="text-center">
+          <p class="slot-label mb-2">Footer Link</p>
+          <a href="#" class="text-sm text-mute hover:text-ink">[Link]</a>
+        </div>
+      </nav>
+    </div>
+    <div class="border-t border-line">
+      <p class="mx-auto max-w-6xl px-6 py-5 text-center text-xs text-mute sm:px-8 md:text-left">
+        © [Year] [Business Name]
+      </p>
+    </div>
+  </footer>
+
+  <!-- Minimal vanilla JS: reveal sections as they enter the viewport -->
+  <script>
+    (function () {
+      var nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      nodes.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
